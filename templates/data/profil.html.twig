@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1 class="text-center">Liste de vos commandes</h1>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Produit</th>
+        <th>Quantite</th>
+        <th>Prix </th>
+        <th>Action</th>
+        
+    </tr>
+</thead>
+<tbody>
+{% for item in commande %}
+    <tr>
+        <td>{{ item.produit.id}} /<img src="{{ item.produit.photo }}" alt="Photo" style="width: 150px;"></td>
+      
+        <td>{{ item.quantite}}</td>
+        <td>{{item.produit.prix}}€</td>
+        <td>
+      <a href="{{path('profil_delete', {id:item.id})}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+      </td>
+        
+        
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

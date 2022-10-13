@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Admin | Formulaire commande
+{% endblock %}
+
+{% block body %} 
+
+	<h1 class="display-4 text-center my-4">
+
+		{% if editMode %}
+			BACKOFFICE | Edition de la commande
+		{% else %}
+			BACKOFFICE | Création d'une commande
+		{% endif %}
+
+	</h1>
+
+	{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+	{{ form_row(form.membre.id) }}
+	{{ form_row(form.produit.id) }}
+	{{ form_row(form.quantite) }}
+	{{ form_row(form.montant) }}
+    {{ form_row(form.etat) }}
+    
+
+	<button class="btn btn-primary my-2" type="submit">
+
+		{% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+			Créer la commande
+		{% endif %}
+
+	</button>
+
+	{{ form_end(form) }}
+
+
+{% endblock %}

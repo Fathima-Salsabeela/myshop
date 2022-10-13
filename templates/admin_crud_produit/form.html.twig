@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Admin | Formulaire Produit
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="display-4 text-center my-4">
+
+		{% if editMode %}
+			BACKOFFICE | Edition produit 
+		{% else %}
+			BACKOFFICE | Création produit
+		{% endif %}
+
+	</h1>
+
+	{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+	{{ form_row(form.titre) }}
+	{{ form_row(form.description) }}
+	{{ form_row(form.couleur ) }}
+	{{ form_row(form.taille) }}
+    {{ form_row(form.collection) }}
+	{{ form_row(form.photo) }}
+	{{ form_row(form.prix) }}
+    {{ form_row(form.stock) }}
+    
+
+	<button class="btn btn-primary my-2" type="submit">
+
+		{% if editMode %}
+			Enregistrer les modifications
+		{% else %}
+			Enregistrer
+		{% endif %}
+
+	</button>
+
+	{{ form_end(form) }}
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center">MY SHOP HOME PAGE</h1>
+	<div class="row">
+		{% for item in produit %}
+			<div class="col-md-4">
+				<div class="card mb-3" style="width: 18rem;">
+					<h3 class="card-header">{{ item.titre }}</h3>
+					<img src="{{ item.photo }}" alt="Image ">
+					<div class="card-body">
+						<p class="card-text">{{ item.description }}</p>
+						<p class="card-text text-end fw-bold">{{ item.prix }}€</p>
+					</div>
+					<div class="card-body text-end">
+						<a href="{{ path('cart_add', {id: item.id}) }}" class="card-link btn btn-primary">Ajouter la panier</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	 
+{% endblock %}
+
